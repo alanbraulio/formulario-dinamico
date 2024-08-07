@@ -1,0 +1,33 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:14
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y tidy
+            sudo apt-get install -y htmlhint
+            sudo npm install -g eslint csslint
+      - run:
+          name: Validate HTML
+          command: |
+            find . -name "*.html" -exec tidy -qe {} \;
+      - run:
+          name: Lint JavaScript
+          command: |
+            eslint .
+      - run:
+          name: Lint CSS
+          command: |
+            find . -name "*.css" -exec csslint {} \;
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build

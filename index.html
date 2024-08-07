@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Dinâmico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="dynamicForm">
+            <h1>Formulário Dinâmico</h1>
+            <div class="input-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="action-buttons">
+                <button type="button" id="addFieldButton">+</button>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h2>Adicionar Novo Campo</h2>
+            <div class="input-group">
+                <label for="fieldType">Tipo de Campo:</label>
+                <select id="fieldType">
+                    <option value="text">Texto</option>
+                    <option value="password">Senha</option>
+                    <option value="date">Data</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="fieldLabel">Label do Campo:</label>
+                <input type="text" id="fieldLabel">
+            </div>
+            <button id="addField">Adicionar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
